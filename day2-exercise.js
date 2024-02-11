@@ -25,8 +25,8 @@ const number2 = 2;
 // }
 
 //cara lain
-console.log(number % 2 == 0 ? "even number":"odd number");
-console.log(number2 % 2 == 0 ? "even number":"odd number");
+console.log(number % 2 == 0 ? "even number" : "odd number");
+console.log(number2 % 2 == 0 ? "even number" : "odd number");
 
 // ● Write a code to check whether the number is prime number or not
 // ○ Example: 7 → 7 is a prime number
@@ -41,18 +41,18 @@ console.log(number2 % 2 == 0 ? "even number":"odd number");
 // }
 
 // jawaban no 3
-const num = 7;
-let isPrime = true;
+// const num = 7;
+// let isPrime = true;
 
-//3.1
-for (let i = 2; i < num; i++) {
-  if (num % i == 0) {
-    isPrime = false;
-    break;
-  }
-}
+// //3.1
+// for (let i = 2; i < num; i++) {
+//   if (num % i == 0) {
+//     isPrime = false;
+//     break;
+//   }
+// }
 
-console.log(isPrime);
+// console.log(isPrime);
 
 //3.2
 // const num2 = 6;
@@ -130,29 +130,29 @@ console.log(itsPrime);
 
 // console.log(fact);
 
-const num4 = 5;
-let result = 1;
-let message1 = "";
+// const num4 = 5;
+// let result = 1;
+// let message1 = "";
 
-for (let i = 5; i >= 1; i--) {
-  result *= i;
-  message1 += i + (i === 1 ? "" : " x ");
-}
+// for (let i = 5; i >= 1; i--) {
+//   result *= i;
+//   message1 += i + (i === 1 ? "" : " x ");
+// }
 
-console.log(result);
-console.log(message1 + " = " + result);
+// console.log(result);
+// console.log(message1 + " = " + result);
 
 let factor = 1;
-let nu1 = 6;
-let j1 = 1;
+let num = 6;
+let message = "";
 
-for (let j1 = 1; j1 <= nu1; j1++) {
-  factor = factor * j1;
+for (let j1 = 6; j1 >= 1; j1--) {
+  factor *= j1;
+  message += j1 + (j1 === 1 ? "" : " x ");
 }
 
 console.log(factor);
-
-
+console.log(message + " = " + factor);
 
 // ● Write a code to print the first N fibonacci numbers
 // ○ Example: 15 → 610
@@ -169,9 +169,6 @@ for (let i = 0; i < n; i++) {
   let z = x + y; //menentukan rumus untuk jumlah urutan selanjutnya
   y = x;
   x = z;
-  
 }
 
 console.log(x);
-
-
