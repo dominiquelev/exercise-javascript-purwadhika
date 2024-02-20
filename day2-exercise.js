@@ -24,9 +24,9 @@ const number2 = 2;
 //   console.log("odd number");
 // }
 
-//cara lain
-console.log(number % 2 == 0 ? "even number" : "odd number");
-console.log(number2 % 2 == 0 ? "even number" : "odd number");
+// //cara lain
+// console.log(number % 2 == 0 ? "even number" : "odd number");
+// console.log(number2 % 2 == 0 ? "even number" : "odd number");
 
 // ● Write a code to check whether the number is prime number or not
 // ○ Example: 7 → 7 is a prime number
@@ -41,18 +41,18 @@ console.log(number2 % 2 == 0 ? "even number" : "odd number");
 // }
 
 // jawaban no 3
-// const num = 7;
-// let isPrime = true;
+const num = 7;
+let isPrime = true;
 
-// //3.1
-// for (let i = 2; i < num; i++) {
-//   if (num % i == 0) {
-//     isPrime = false;
-//     break;
-//   }
-// }
+//3.1
+for (let i = 2; i < num; i++) {
+  if (num % i == 0) {
+    isPrime = false;
+    break;
+  }
+}
 
-// console.log(isPrime);
+console.log(isPrime);
 
 //3.2
 // const num2 = 6;
@@ -142,17 +142,17 @@ console.log(itsPrime);
 // console.log(result);
 // console.log(message1 + " = " + result);
 
-let factor = 1;
-let num = 6;
-let message = "";
+// let factor = 1;
+// let num = 6;
+// let message = "";
 
-for (let j1 = 6; j1 >= 1; j1--) {
-  factor *= j1;
-  message += j1 + (j1 === 1 ? "" : " x ");
-}
+// for (let j1 = 6; j1 >= 1; j1--) {
+//   factor *= j1;
+//   message += j1 + (j1 === 1 ? "" : " x ");
+// }
 
-console.log(factor);
-console.log(message + " = " + factor);
+// console.log(factor);
+// console.log(message + " = " + factor);
 
 // ● Write a code to print the first N fibonacci numbers
 // ○ Example: 15 → 610

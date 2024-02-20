@@ -23,8 +23,8 @@
 
 // const result = lowestHighestAverage(arr);
 // console.log(`Lowest: ${result.lowest}`);
-// console.log(`Lowest: ${result.highest}`);
-// console.log(`Lowest: ${result.average}`);
+// console.log(`highest: ${result.highest}`);
+// console.log(`average: ${result.average}`);
 
 // // no.2
 // // Write a function that takes an array of words and returns a string by concatenating the words in the array,
@@ -257,7 +257,7 @@ function userChoice() {
 }
 
 function computerChoice() {
-  const randomIndex = Math.floor(Math.random() * 3);
+  const randomIndex = Math.floor(Math.random() * 2.9);
   return game[randomIndex];
 }
 
@@ -288,7 +288,6 @@ gameStart();
 //======================
 // no.4
 
-//
 // [1,2,3,4,5]
 // [1,2,3]
 function calculateArray(arr1, arr2) {
