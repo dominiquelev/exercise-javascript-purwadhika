@@ -118,47 +118,199 @@
 //  ■ Create a method in that class to calculate total salary
 //  ○ Use inheritance concept
 
-class Employee{
-  constructor(hourlyRate){
-    this.hourlyRate = hourlyRate;
-    this.workingHours =0;
+// class Employee {
+//   constructor(hourlyRate) {
+//     this.hourlyRate = hourlyRate;
+//     this.workingHours = 0;
+//   }
+
+//   WorkingHours(hours) {
+//     this.workingHours += hours;
+//   }
+//   totalSalary() {
+//     if (this.workingHours <= 6) {
+//       return this.workingHours * this.hourlyRate;
+//     } else {
+//       if (this instanceof FulltimeEmployee) {
+//         return 6 * this.hourlyRate + (this.workingHours - 6) * 75000;
+//       } else if (this instanceof ParttimeEmployee) {
+//         return 6 * this.hourlyRate + (this.workingHours - 6) * 30000;
+//       }
+//     }
+//   }
+// }
+
+// class FulltimeEmployee extends Employee {
+//   constructor() {
+//     super(100000);
+//   }
+// }
+
+// class ParttimeEmployee extends Employee {
+//   constructor() {
+//     super(50000);
+//   }
+// }
+
+// const fullTimeEmployee = new FulltimeEmployee();
+// const parTimeEmployee = new ParttimeEmployee();
+
+// fullTimeEmployee.WorkingHours(7);
+// parTimeEmployee.WorkingHours(5);
+
+// console.log(fullTimeEmployee.totalSalary());
+// console.log(parTimeEmployee.totalSalary());
+
+// ====================================================================================
+// no.1
+
+// class Player {
+//   constructor(name, health = 100, power = 10) {
+//     this.name = name;
+//     this.health = health;
+//     this.power = power;
+//   }
+
+//   damage(power) {
+//     this.health -= power;
+//   }
+
+//   useItem(item) {
+//     this.health += item.health;
+//     this.power += item.power;
+//   }
+
+//   showStatus() {
+//     return `${this.name} (Health => ${this.health}, Power => ${this.power})`;
+//   }
+// }
+
+// class ShootingGame {
+//   constructor(player1, player2) {
+//     this.player1 = player1;
+//     this.player2 = player2;
+//   }
+
+//   getRandomItem() {
+//     const health = Math.random() < 0.5 ? 0 : 10;
+//     const power = Math.random() < 0.5 ? 0 : 10;
+//     return { health: health, power: power }; //fullnya
+//     // return { health, power }; // shortcut
+//   }
+
+//   start() {
+//     while (this.player1.health > 0 && this.player2 > 0) {
+//       //tampilkan status sekarang
+//       this.player1.showStatus();
+//       this.player2.showStatus();
+
+//       //generate random item tiap player
+//       const itemPlayer1 = this.getRandomItem();
+//       const itemPlayer2 = this.getRandomItem();
+
+//       this.player1.useItem(itemPlayer1);
+//       this.player2.useItem(itemPlayer2);
+
+//       //player 1 hit player 2 dan sebaliknya
+
+//       this.player1.damage(this.player2.power);
+//       this.player2.damage(this.player1.power);
+
+//       //tampilkan status sekarang setelah damage
+//       this.player1.showStatus();
+//       this.player2.showStatus();
+//       //selanjutnya akan melakukan looping sampai kondisi while tidak terpenuhi
+//     }
+//     if (this.player1.health <= 0) {
+//       return `${this.player2.name} is a Winner`;
+//     } else {
+//       return `${this.player1.name} is a Winner`;
+//     }
+//     // showPlayer(){
+//     //   console.log(this.player1);
+//     //   console.log(this.player2);
+//   }
+// }
+
+// const playerA = new Player("Budi");
+// // console.log(playerA);
+// const playerB = new Player("Siti");
+
+// const game = new ShootingGame(playerA, playerB);
+// console.log(game.start());
+// game.showPlayer();
+// console.log(game.getRandomItem());
+
+//===============================================================================
+
+// no.2
+
+class Employee {
+  constructor(name) {
+    this.name = name;
+    this.workingHours = 0;
   }
 
-  WorkingHours(hours){
-    this.workingHours += hours
+  addWorkingHours(hour) {
+    this.workingHours += hour;
   }
-  totalSalary(){
-    if(this.workingHours<=6){
-      return this.workingHours * this.hourlyRate
-    }else{
-      if (this instanceof FulltimeEmployee){
-        return (6 * this.hourlyRate) + ((this.workingHours - 6) *75000);
-      }else if(this instanceof ParttimeEmployee){
-        return (6 * this.hourlyRate) + ((this.workingHours - 6) *30000);
-      };
+
+  calcultaTotalSalary() {
+    const normalHour = 6;
+    const overTimeHour = this.workingHours - normalHour;
+    const overTimeRate = 0;
+
+
+    if (this.addWorkingHours <= 6) {
+      return this.workingHours * normalHour;
+    } else {
+      if (this instanceof FulltimeEmployee) {       
+        const overTimeRate = 75000;
+        return this.workingHours * normalRate+ overTimeHour * overTimeRate;
+      } else if (this instanceof ParttimeEmployee) {
+        const overTimeRatePart =30000;
+          return (this.workingHours * normalRatePart) + overTimeHour * overTimeRatePart;
+      }
     }
   }
-
 }
 
-class FulltimeEmployee extends Employee{
-constructor(){
-  super(100000);
+class FulltimeEmployee extends Employee {
+  constructor(name) {
+    super(name);
+  }
+
+  addWorkingHours(hour){
+    super(hour);
+  //   this.workingHours += hour;
+  }
+  calcultaTotalSalary() {
+    super(100000)
+  //   const normalRate = 100000;
+  //   const overTimeRate = 75000;
+
+  //   if (this.addWorkingHours <= 6) {
+  //     return {
+  //       total: `Rp ${this.workingHours * normalRate.toLocaleString("id-ID")}`,
+  //     };
+  //   } else {
+  //     const normalHour = 6;
+  //     const overTimeHour = this.workingHours - normalHour;
+
+  //     return {
+  //       total: `Rp ${(
+  //         overTimeHour * overTimeRate +
+  //         normalHour * normalRate
+  //       ).toLocaleString("id-ID")}`,
+  //     };
+  //   }
+  }
 }
 
-}
+class ParttimeEmployee extends Employee {}
 
-class ParttimeEmployee extends Employee{
-constructor(){
-  super(50000)
-}
-}
+const employee1 = new FulltimeEmployee("Budi");
 
-const fullTimeEmployee = new FulltimeEmployee();
-const parTimeEmployee = new ParttimeEmployee();
+employee1.addWorkingHours(6);
 
-fullTimeEmployee.WorkingHours(7);
-parTimeEmployee.WorkingHours(5);
-
-console.log(fullTimeEmployee.totalSalary());
-console.log(parTimeEmployee.totalSalary());
+console.log(employee1.calcultaTotalSalary());
