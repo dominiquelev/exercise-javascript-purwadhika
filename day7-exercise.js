@@ -304,7 +304,7 @@ const factorial = (n) => {
     const next = factorial(n - 1);
 
     return {
-      step:  [n, ...next.step],
+      step: [n, ...next.step],
       total: n * next.total,
     };
   }
@@ -313,6 +313,6 @@ const factorial = (n) => {
 const number = 5;
 
 const { step, total } = factorial(number);
-console.log({step,total});
+console.log({ step, total });
 
 console.log(step.join(" x ") + " = " + total);

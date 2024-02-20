@@ -285,7 +285,7 @@ class FulltimeEmployee extends Employee {
   //   this.workingHours += hour;
   }
   calcultaTotalSalary() {
-    super(100000)
+    super()
   //   const normalRate = 100000;
   //   const overTimeRate = 75000;
 
