@@ -33,7 +33,7 @@ class Train {
 
   showPassenger() {
     return {
-      passengers: this.passengers.slice(1), //untuk mengurangi jumlah dari masinis
+      passengers: this.passengers, //untuk mengurangi jumlah dari masinis
       availableSeat: this.maxSize - this.passengers.length,
     };
   }
@@ -53,7 +53,7 @@ class Train {
     if (name === "masinis") {
       return "cannot remove masinis";
     }
-    if(this.#isEmpty()){
+    if (this.#isEmpty()) {
       return "Train is Empty";
     }
     const index = this.passengers.indexOf(name);
@@ -77,7 +77,8 @@ console.log(train.passengerIn("Damang"));
 console.log(train.passengerIn("Wang"));
 console.log(train.passengerIn("Uda"));
 console.log(train.passengerIn("Bambang"));
-console.log(train.passengerIn("mamat"));
+console.log;
+train.passengerIn("mamat");
 console.log(train.showPassenger());
 console.log(train.passengerOut("Jonas"));
 console.log(train.showPassenger());
@@ -92,44 +93,78 @@ console.log(train.passengerOut("masinis"));
 console.log(train.passengerOut("Damang"));
 console.log(train.passengerOut("Wang"));
 console.log(train.passengerOut("Uda"));
-console.log(train.passengerOut("Bambang"))
+console.log(train.passengerOut("Bambang"));
 
 // NO 2
 
-// Write a JavaScript function called phoneNumber that takes a single argument input.
-//     The function is intended to format a phone number. It checks the input to ensure
-//     it meets certain criteria and then proceeds with formatting. The formatting
-//     includes replacing the leading "0" with "62" and creating a template in the
-//     format "(xxxx)-xxxx-xxxxx" where each "x" represents a digit from the input. The
-//     function returns the formatted phone number.
+/*Write a JavaScript function called phoneNumber that takes a single argument input.
+    The function is intended to format a phone number. It checks the input to ensure
+    it meets certain criteria and then proceeds with formatting. The formatting
+    includes replacing the leading "0" with "62" and creating a template in the
+    format "(xxxx)-xxxx-xxxxx" where each "x" represents a digit from the input. The
+    function returns the formatted phone number.
 
-//     - Check if the input is of type "string." If it's not, return "Invalid phone number."
-//     - Check if the length of the input is exactly 12 characters. If it's not, return "Invalid phone number."
-//     - Make sure the input all are numeric 0-9
-//     ex :
-//     input = "085244455555"
-//     output = "(6285)-2444-55555"
+    - Check if the input is of type "string." If it's not, return "Invalid phone number."
+    - Check if the length of the input is exactly 12 characters. If it's not, return "Invalid phone number."
+    - Make sure the input all are numeric 0-9
+    ex :
+    input = "085244455555"
+    output = "(6285)-2444-55555"
+*/
+// function phoneNumber(input) {
+//   let output = [];
 
-function phoneNumber(input) {
-  let output = [];
+//   if (input.length !== 12 && typeof input.length !== "string") {
+//     return "Invalid phone number";
+//   }
+//   const replaceNum = input.replace("0", "62");
+//   const splitNum = replaceNum.split("");
+//   console.log(replaceNum);
 
-  if (input.length !== 12 && typeof input.length !== "string") {
-    return "Invalid phone number";
-  }
-  const replaceNum = input.replace("0", "62");
-  const splitNum = replaceNum.split("");
-  console.log(replaceNum);
+//   splitNum.splice(8, 0, "-");
+//   splitNum.splice(4, 0, "-");
+//   splitNum.splice(4, 0, ")");
+//   splitNum.splice(0, 0, "(");
 
-  splitNum.splice(8, 0, "-");
-  splitNum.splice(4, 0, "-");
-  splitNum.splice(4, 0, ")");
-  splitNum.splice(0, 0, "(");
-
-  output.push(splitNum.join(""));
-  console.log(output);
-  return output.join();
-}
-const input = "085244455555";
-console.log(phoneNumber(input));
+//   output.push(splitNum.join(""));
+//   console.log(output);
+//   return output.join();
+// }
+// const input = "085244455555";
+// console.log(phoneNumber(input));
 
 // typeof,replace,split,join
+
+// ====================================================
+
+// No. 1 Phone Number
+
+function phoneNumber(input) {
+  // - Check if the input is of type "string." If it's not, return "Invalid phone number."
+  if (typeof input !== "string") {
+    return "Invalid phone number";
+  }
+  // - Check if the length of the input is exactly 12 characters. If it's not, return "Invalid phone number."
+  if (input.length !== 12) {
+    return "Invalid phone number";
+  }
+
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] < "0" || input[i] > "9") {
+      return "Invalid phone Number";
+    }
+  }
+  input = "62" + input.slice(1);
+  console.log(input);
+  let template = "(xxxx)-xxxx-xxxxx";
+  console.log(input.split(""));
+  input.split("").forEach((item) => {
+    // di split terlebih dahulu menjadi permasing" index
+    template = template.replace("x", item); // template di replace dengan menggunakan item dari array yang sudah di split
+  });
+  return template;
+}
+
+phoneNumber("085244455555");
+
+console.log(phoneNumber("085244455555"));
