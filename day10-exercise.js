@@ -19,81 +19,81 @@
 //     if an attempt is made to remove the "masinis," "train empty" if the train is already empty, and
 //     "passenger not found" if the passenger with the given name is not found on the train.
 
-class Train {
-  constructor() {
-    this.passengers = ["masinis"];
-    this.maxSize = 10;
-  }
-  #isFull() {
-    return this.passengers.length >= this.maxSize;
-  }
-  #isEmpty() {
-    return this.passengers.length === 1; //1 = masinisnya
-  }
+// class Train {
+//   constructor() {
+//     this.passengers = ["masinis"];
+//     this.maxSize = 10;
+//   }
+//   #isFull() {
+//     return this.passengers.length >= this.maxSize;
+//   }
+//   #isEmpty() {
+//     return this.passengers.length === 1; //1 = masinisnya
+//   }
 
-  showPassenger() {
-    return {
-      passengers: this.passengers, //untuk mengurangi jumlah dari masinis
-      availableSeat: this.maxSize - this.passengers.length,
-    };
-  }
+//   showPassenger() {
+//     return {
+//       passengers: this.passengers, //untuk mengurangi jumlah dari masinis
+//       availableSeat: this.maxSize - this.passengers.length,
+//     };
+//   }
 
-  passengerIn(name) {
-    if (this.#isFull()) {
-      return `train is full`;
-    }
-    if (this.passengers.includes(name)) {
-      return `the ${name} already exists`;
-    }
-    this.passengers.push(name);
-    return "add passenger success";
-  }
+//   passengerIn(name) {
+//     if (this.#isFull()) {
+//       return `train is full`;
+//     }
+//     if (this.passengers.includes(name)) {
+//       return `the ${name} already exists`;
+//     }
+//     this.passengers.push(name);
+//     return "add passenger success";
+//   }
 
-  passengerOut(name) {
-    if (name === "masinis") {
-      return "cannot remove masinis";
-    }
-    if (this.#isEmpty()) {
-      return "Train is Empty";
-    }
-    const index = this.passengers.indexOf(name);
-    if (index === -1) {
-      return `${name} is not found`;
-    }
-    this.passengers.splice(index, 1);
-    return `remove ${name} success`;
-  }
-}
+//   passengerOut(name) {
+//     if (name === "masinis") {
+//       return "cannot remove masinis";
+//     }
+//     if (this.#isEmpty()) {
+//       return "Train is Empty";
+//     }
+//     const index = this.passengers.indexOf(name);
+//     if (index === -1) {
+//       return `${name} is not found`;
+//     }
+//     this.passengers.splice(index, 1);
+//     return `remove ${name} success`;
+//   }
+// }
 
-const train = new Train();
+// const train = new Train();
 
-console.log(train.passengerIn("John"));
-console.log(train.passengerIn("Albert"));
-console.log(train.passengerIn("Jonas"));
-console.log(train.passengerIn("Jacob"));
-console.log(train.passengerIn("Dadang"));
-console.log(train.passengerIn("masinis"));
-console.log(train.passengerIn("Damang"));
-console.log(train.passengerIn("Wang"));
-console.log(train.passengerIn("Uda"));
-console.log(train.passengerIn("Bambang"));
-console.log;
-train.passengerIn("mamat");
-console.log(train.showPassenger());
-console.log(train.passengerOut("Jonas"));
-console.log(train.showPassenger());
-console.log(train.passengerOut("Bambang"));
-console.log(train.passengerOut("masinis"));
-console.log(train.passengerOut("John"));
-console.log(train.passengerOut("Albert"));
-console.log(train.passengerOut("Jonas"));
-console.log(train.passengerOut("Jacob"));
-console.log(train.passengerOut("Dadang"));
-console.log(train.passengerOut("masinis"));
-console.log(train.passengerOut("Damang"));
-console.log(train.passengerOut("Wang"));
-console.log(train.passengerOut("Uda"));
-console.log(train.passengerOut("Bambang"));
+// console.log(train.passengerIn("John"));
+// console.log(train.passengerIn("Albert"));
+// console.log(train.passengerIn("Jonas"));
+// console.log(train.passengerIn("Jacob"));
+// console.log(train.passengerIn("Dadang"));
+// console.log(train.passengerIn("masinis"));
+// console.log(train.passengerIn("Damang"));
+// console.log(train.passengerIn("Wang"));
+// console.log(train.passengerIn("Uda"));
+// console.log(train.passengerIn("Bambang"));
+// console.log;
+// train.passengerIn("mamat");
+// console.log(train.showPassenger());
+// console.log(train.passengerOut("Jonas"));
+// console.log(train.showPassenger());
+// console.log(train.passengerOut("Bambang"));
+// console.log(train.passengerOut("masinis"));
+// console.log(train.passengerOut("John"));
+// console.log(train.passengerOut("Albert"));
+// console.log(train.passengerOut("Jonas"));
+// console.log(train.passengerOut("Jacob"));
+// console.log(train.passengerOut("Dadang"));
+// console.log(train.passengerOut("masinis"));
+// console.log(train.passengerOut("Damang"));
+// console.log(train.passengerOut("Wang"));
+// console.log(train.passengerOut("Uda"));
+// console.log(train.passengerOut("Bambang"));
 
 // NO 2
 
@@ -137,7 +137,7 @@ console.log(train.passengerOut("Bambang"));
 
 // ====================================================
 
-// No. 1 Phone Number
+// No. 2 Phone Number
 
 function phoneNumber(input) {
   // - Check if the input is of type "string." If it's not, return "Invalid phone number."
@@ -168,3 +168,73 @@ function phoneNumber(input) {
 phoneNumber("085244455555");
 
 console.log(phoneNumber("085244455555"));
+
+// no.1  train
+
+
+class Train{
+  constructor(){
+  this.container = ["masinis"]; //untuk passenger
+  this.maxSize = 10;
+  }
+
+
+#isFull() {
+  return this.container.length === this.maxSize;
+}
+
+#isEmpty (){
+  return this.container.length === 1;
+}
+
+showPassenger(){
+  return{
+    passenger : this.container,
+    remainingSeat : this.maxSize - this.container.length
+  }
+}
+
+passengerIn(name){
+  if(this.#isFull()){
+    return "train full";
+  }
+  if(this.container.includes(name)){
+    return "passenger already exist";
+  }
+  this.container.push(name);
+  return "add passenger success";
+
+}
+
+passengerOut(name){
+if(name === "masinis"){
+  return "cannot remove masinis";
+}
+
+if(this.#isEmpty()){
+  return"train empty";
+}
+
+const index = this.container.indexOf(name);
+
+if(index === -1){ //karena ingin mengecek index jadi length harus di -1
+  return "passenger not found";
+}
+this.container.splice(index,1);
+}}
+
+
+const train = new Train;
+
+console.log(train.passengerIn("a"));
+console.log(train.passengerIn("b"));
+console.log(train.passengerIn("c"));
+console.log(train.passengerIn("d"));
+console.log(train.passengerIn("e"));
+console.log(train.passengerIn("f"));
+console.log(train.passengerIn("g"));
+console.log(train.passengerIn("h"));
+console.log(train.passengerIn("masinis"));
+console.log(train.passengerIn("i"));
+console.log(train.showPassenger());
+console.log(train.passengerOut("a"));
