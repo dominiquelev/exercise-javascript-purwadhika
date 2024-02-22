@@ -116,7 +116,7 @@ function phoneNumber(input) {
   if (input.length !== 12 && typeof input.length !== "string") {
     return "Invalid phone number";
   }
-  const replaceNum = input.replace(/0/g, "62");
+  const replaceNum = input.replace("0", "62");
   const splitNum = replaceNum.split("");
   console.log(replaceNum);
 
