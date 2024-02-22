@@ -11,6 +11,7 @@ console.log(farenheit);
 const number = 25;
 const number2 = 2;
 
+
 // if (number % 2 == 0) {
 //   console.log("even number");
 // } else {

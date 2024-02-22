@@ -144,23 +144,23 @@
 // // Write a function to find duplicate values in an array
 // //  a. Example : arr = [1, 2, 2, 2, 3, 3, 4, 5, 5] → [2, 3, 5]
 
-// let num = [1, 2, 2, 2, 3, 3, 4, 5, 5];
+let num = [1, 2, 2, 2, 3, 3, 4, 5, 5];
 
-// function duplicateNum(number) {
-//   const duplicateAr = [];
-//   const seen = [];
+function duplicateNum(number) {
+  const duplicateAr = [];
+  const seen = [];
 
-//   for (let num of number) {
-//     if (!seen[num]) {
-//       seen[num] = true;
-//     } else if (!duplicateAr.includes(num)) {
-//       duplicateAr.push(num);
-//     }
-//   }
-//   return duplicateAr;
-// }
+  for (let num of number) {
+    if (!seen[num]) {
+      seen[num] = true;
+    } else if (!duplicateAr.includes(num)) {
+      duplicateAr.push(num);
+    }
+  }
+  return duplicateAr;
+}
 
-// console.log(duplicateNum(num));
+console.log(duplicateNum(num));
 
 // // NO.10
 // // Write a function to find the difference in 2 given array

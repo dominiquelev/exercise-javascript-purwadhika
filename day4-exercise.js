@@ -147,31 +147,28 @@
 // triangle(4);
 
 // // no.2
-// function fizzBuzz(n) {
-//   let message = "";
+var fizzBuzz = function (n) {
+  let message = "";
 
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      message += "FizzBuzz ";
+    } else if (i % 3 === 0) {
+      message += "Buzz ";
+    } else if (i % 5 === 0) {
+      message += "Fizz ";
+    } else {
+      message += i + " ";
+    }
+  }
+  console.log(message);
+};
 
-// for (let i = 1; i <= n; i++) {
-//   if (i % 3 === 0 && i % 5 === 0) {
-//     message += "FizzBuzz " ;
-//   } else if (i % 3 === 0) {
-//     message += "Buzz " ;
-//   } else if (i % 5 === 0) {
-//     message += "Fizz " ;
-//   } else {
-//     message += i + " ";
-//   }
-// }
-// console.log(message);
-// }
-
-// fizzBuzz(15);
-
+fizzBuzz(15);
 
 //no.3
 // function calculateBmi(weight, height) {
 //   let bmi =weight / (height * height);
-
 
 // if (bmi < 18.5) {
 //   return  "less weight";
@@ -214,35 +211,33 @@
 // const inputArr =[1,2,3,4,5,6,7,8,9,10]
 // console.log(removeOddNumbers2(inputArr));
 
-
 //no. 6
 
 // function splitString(input) {
 //   return input.split (" ");
-  
+
 // }
 
 // console.log(splitString("Hello World"));
 
+// tanpa menggunakan build in method
 
-// tanpa menggunakan build in method 
+// const splitString = function (input) {
+//   const kata = [];
+//   let temp = "";
 
-const splitString = function(input) {
-  const kata = [];
-  let temp = "";
+//   for (let i = 0; i < input.length; i++) {
+//     if (input[i] === " ") {
+//       kata.push(temp);
+//       temp = "";
+//       continue;
+//     }
 
-for (let i = 0; i < input.length ; i++) {
-  if(input[i]=== " ") {
-    kata.push(temp);
-    temp = "";
-    continue;
-  }
+//     temp += input[i];
+//   }
+//   kata.push(temp);
 
-  temp += input[i];
-}
-kata.push(temp);
+//   return kata;
+// };
 
-return kata;
-}
-
-console.log(splitString("Hello World Jogja"));
+// console.log(splitString("Hello World Jogja"));

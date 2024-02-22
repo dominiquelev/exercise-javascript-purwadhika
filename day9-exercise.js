@@ -32,10 +32,10 @@ class Queue {
 }
 const queue = new Queue();
 
-console.log(queue.enqueque("dom"));
-console.log(queue.enqueque("fianda"));
-console.log(queue.enqueque("albert"));
-console.log(queue.enqueque("matane"));
+console.log(queue.enqueque(""));
+console.log(queue.enqueque(""));
+console.log(queue.enqueque(""));
+console.log(queue.enqueque(""));
 console.log(queue.enqueque("mana"));
 
 console.log(queue.size())
